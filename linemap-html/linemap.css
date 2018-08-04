@@ -1,0 +1,32 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 4px;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.sources-container {
+  position: relative;
+  white-space: nowrap;
+  overflow-x: auto;
+  height: calc(100% - 1.2em);
+}
+
+.sources-container > * {
+  display: inline-block;
+}
+
+.source {
+  height: 100%;
+  vertical-align: top;
+  font-size: 24px;
+  width: 400px;
+  border: 2px solid silver;
+  padding: 10px;
+  white-space: nowrap;
+  overflow: scroll;
+  text-overflow: ellipsis;
+}
