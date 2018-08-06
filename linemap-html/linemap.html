@@ -8,16 +8,23 @@
   <script src="linemap.js"></script>
 </head>
 <body>
-  <div class="sources-container">
-    <div class="source"><pre>function f(v::Vector)
-    s = Int8(0)
-    @inbounds for i = 1:length(v)
-        s += v[i]
-    end
-    return s
-end
-    </pre></div>
-    <div class="source">
+  <div class="sources-container"><div class="source">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">function</span> <span class="n">f</span><span class="p">(</span><span class="n">v</span><span class="o">::</span><span class="kt">Vector</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="kt">Int8</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nd">@inbounds</span> <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span><span class="n">length</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">s</span>
+<span class="k">end</span>
+</pre></div>
+</td></tr></table>
+    </div><div class="source">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
@@ -344,8 +351,7 @@ end
 </pre></div>
 </td></tr></table>
 
-    </div>
-    <div class="source">
+    </div><div class="source">
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3

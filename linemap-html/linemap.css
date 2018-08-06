@@ -3,6 +3,12 @@ html, body {
   margin: 0;
   padding: 4px;
   line-height: 1.2em;
+  background-color: #002b36;
+  color: #93a1a1;
+}
+
+body {
+  overflow-x: scroll; /* make sure the computed height doesn't change after injecting the canvas elements */
 }
 
 pre, div, td, th, tr, tbody {
@@ -19,19 +25,26 @@ pre, div, td, th, tr, tbody {
 .sources-container {
   position: relative;
   white-space: nowrap;
-  height: calc(100% - 1.2em);
   font-size: 18px;
+  height: calc(100% - 1.2em);
 }
 
 .sources-container > * {
   display: inline-block;
+  border-color: silver;
+  border-style: solid;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-left-width: 0;
+  border-right-width: 0;
 }
 
 .source {
   height: 100%;
   width: 400px;
-  border: 2px solid silver;
-  overflow: scroll;
+  overflow: auto;
+  border-left-width: 2px;
+  border-right-width: 2px;
 }
 
 
@@ -50,7 +63,7 @@ cyan      #2aa198  strings, numbers
 green     #859900  operators, other keywords
 */
 
-.highlight { background-color: #002b36; color: #93a1a1 }
+/*.highlight { background-color: #002b36; color: #93a1a1 }*/
 .highlight .c { color: #586e75 } /* Comment */
 .highlight .err { color: #93a1a1 } /* Error */
 .highlight .g { color: #93a1a1 } /* Generic */
