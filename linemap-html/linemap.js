@@ -30,7 +30,7 @@ var linemaps = [[
   [5, 15],
   [],
 ]];
-var nlines = [7, 162, 256];
+var nlines = [7, 22, 69, 181, 105, 252, 246, 223];
 
 function rgba(r, g, b, a) {
     return (r<<24) + (g<<16) + (b<<8) + (a*255)|0;

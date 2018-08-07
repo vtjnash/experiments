@@ -41,7 +41,7 @@ pre, div, td, th, tr, tbody {
 
 .source {
   height: 100%;
-  width: 400px;
+  width: 500px;
   overflow: auto;
   border-left-width: 2px;
   border-right-width: 2px;
