@@ -2,7 +2,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 4px;
-  line-height: 1.2em;
   background-color: #002b36;
   color: #93a1a1;
 }
@@ -26,6 +25,7 @@ pre, div, td, th, tr, tbody {
   position: relative;
   white-space: nowrap;
   font-size: 18px;
+  line-height: 1.2em;
   height: calc(100% - 1.2em);
 }
 
@@ -35,7 +35,7 @@ pre, div, td, th, tr, tbody {
   border-right-width: 2px;
 }
 
-.sources-container > *, .source, .source-title, .linenos {
+.sources-container > *, .source, .source-profile, .source-title, .linenos {
   border-color: silver;
   border-style: solid;
 }
@@ -48,7 +48,7 @@ pre, div, td, th, tr, tbody {
   border-right-width: 0;
 }
 
-.source {
+.source, .source-profile{
   height: calc(100% - 1.2em);
   width: 550px;
   overflow: auto;
@@ -64,6 +64,39 @@ pre, div, td, th, tr, tbody {
   border-right-width: 1px;
 }
 
+.source-profile {
+  position: relative;
+}
+
+.source-profile > * {
+  position: absolute;
+}
+
+.flame {
+  width: 100%;
+}
+
+.flame > pre {
+  width: 100%;
+  line-height: calc(1.2em - 5px);
+}
+
+.flame > pre > span {
+  background-color: rgba(196, 0, 0, 0.4); /* darken */
+  margin: 2px 0;
+  border-top: 1px dashed black;
+  border-right: 3px solid black;
+  display: inline-block;
+}
+
+#profile .inlined {
+  font-style: italic;
+}
+
+.interactive-highlight {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, .05); /* lighten */
+}
 
 /* Solarized Dark
 For use with Jekyll and Pygments
