@@ -29,10 +29,19 @@ pre, div, td, th, tr, tbody {
   height: calc(100% - 1.2em);
 }
 
-.sources-container > * {
-  display: inline-block;
+.sources-container > div {
+  height: 100%;
+  border-left-width: 2px;
+  border-right-width: 2px;
+}
+
+.sources-container > *, .source, .source-title, .linenos {
   border-color: silver;
   border-style: solid;
+}
+
+.sources-container > * {
+  display: inline-block;
   border-top-width: 2px;
   border-bottom-width: 2px;
   border-left-width: 0;
@@ -40,15 +49,19 @@ pre, div, td, th, tr, tbody {
 }
 
 .source {
-  height: 100%;
-  width: 500px;
+  height: calc(100% - 1.2em);
+  width: 550px;
   overflow: auto;
-  border-left-width: 2px;
-  border-right-width: 2px;
+}
+
+.source-title {
+  border-bottom-width: 1px;
+  padding-right: 10px;
+  text-align: right;
 }
 
 .linenos {
-  border-right: 1px solid silver;
+  border-right-width: 1px;
 }
 
 

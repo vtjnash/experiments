@@ -1,5 +1,8 @@
-var rlinemaps = [[2, 0, 2, 3, 0, 3, 3, 3, 3, 3, 3, 3, 4, 0, 4, 4, 4, 4, 4, 4, 4, 4, 6], [6, 0, 0, 0, 0, 6, 0, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 6, 0, 0, 6, 0, 6, 0, 6, 0, 6, 6, 0, 6, 6, 6, 8, 0, 0, 9, 0, 10, 0, 10, 10, 15, 0, 0, 17, 0, 0, 18, 0, 0, 0, 0, 18, 0, 0, 18, 0, 18, 0, 0, 18, 0, 0, 0, 0, 18, 0, 0, 0, 18, 0, 0, 18, 0, 0, 18, 0, 18, 0, 18, 0, 0, 18, 0, 18, 18, 0, 18, 18, 20, 0, 21, 0, 22, 0, 23, 0, 23], [], [], [], [], []];
-var nlines = [7, 24, 98, 180, 154, 361, 304, 257];
+// TODO: clicking on a row should highlight it, and all associated rows
+// TODO: scrolling while a line is selected should synchro-scroll everything
+
+var rlinemaps = [[0, 0, 2, 2, 0, 3, 3, 3, 3, 3, 3, 3, 3, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 6], [0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 7, 0, 0, 7, 0, 7, 0, 7, 0, 7, 7, 0, 7, 7, 7, 7, 0, 0, 9, 0, 10, 0, 11, 11, 11, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 0, 19, 0, 0, 19, 0, 0, 19, 0, 19, 0, 0, 19, 0, 0, 0, 0, 19, 0, 0, 0, 19, 0, 0, 19, 0, 0, 19, 0, 19, 0, 19, 0, 0, 19, 0, 19, 19, 0, 19, 19, 19, 0, 21, 0, 22, 0, 23, 0, 25, 25], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 6, 6, 6, 6, 11, 0, 11, 18, 0, 18, 21, 0, 23, 0, 23, 23, 0, 0, 25, 0, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 25, 27, 0, 27, 27, 27, 27, 27, 27, 0, 0, 0, 0, 0, 28, 0, 0, 0, 0, 0, 0, 0, 31, 0, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 33, 0, 0, 0, 36, 0, 38, 0, 38, 38, 0, 0, 38, 0, 0, 38, 38, 38, 38, 38, 38, 38, 38, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 41, 0, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 41, 44, 0, 44, 44, 46, 0, 46, 46, 0, 0, 48, 0, 0, 0, 52, 0, 52, 52, 52, 0, 0, 0, 63, 0, 66, 0, 66, 66, 66, 66, 71, 0, 71, 78, 0, 78, 81, 0, 83, 0, 83, 83, 0, 0, 85, 0, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 85, 88, 0, 90, 0, 90, 90, 90, 90, 90, 90, 0, 0, 0, 0, 0, 91, 0, 0, 0, 0, 0, 0, 0, 93, 0, 93, 93, 93, 93, 93, 93, 93, 93, 93, 93, 93, 97, 0, 99, 0, 99, 99, 0, 0, 99, 0, 0, 101, 0, 101, 101, 101, 101, 101, 101, 101, 101, 0, 0, 0, 0, 0, 0, 104, 0, 0, 0, 27, 0, 27, 0, 0, 27, 0, 0, 27, 0, 0, 27, 27, 0, 0, 38, 0, 0, 0, 38, 0, 0, 38, 0, 0, 38, 38, 0, 0, 101, 0, 0, 0, 101, 0, 0, 101, 0, 0, 101, 101, 0, 0, 90, 0, 90, 0, 0, 90, 0, 0, 90, 0, 0, 90, 90], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 31, 0, 32, 0, 33, 0, 44, 0, 45, 0, 0, 0, 53, 0, 53, 57, 0, 58, 0, 60, 0, 61, 0, 62, 0, 63, 0, 64, 0, 65, 0, 71, 0, 72, 0, 73, 0, 73, 75, 0, 89, 0, 89, 0, 0, 0, 329, 0, 0, 0, 0, 145, 0, 0, 148, 0, 164, 0, 169, 0, 169, 185, 0, 196, 0, 203, 0, 0, 0, 235, 0, 236, 0, 252, 0, 252, 0, 0, 0, 244, 0, 343, 0, 0, 0, 305, 0, 307, 0, 0, 0, 77, 0, 79, 0, 322, 0, 0, 0, 238, 0, 240, 0, 365], [0, 0, 0, 0, 0, 0, 0, 10, 10, 10, 19, 19, 21, 21, 23, 23, 23, 28, 28, 40, 40, 50, 50, 42, 42, 44, 44, 46, 46, 53, 53, 55, 55, 56, 56, 56, 108, 108, 110, 110, 110, 0, 0, 0, 0, 0, 0, 61, 61, 61, 61, 61, 61, 61, 61, 116, 116, 96, 96, 96, 96, 66, 66, 71, 71, 73, 73, 73, 74, 74, 78, 78, 80, 80, 80, 80, 86, 86, 86, 88, 88, 89, 89, 89, 89, 96, 96, 96, 96, 102, 102, 102, 102, 102, 102, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+var nlines = [7, 25, 104, 420, 164, 257]
 
 
 //function rgba(r, g, b, a) {
@@ -32,11 +35,12 @@ function _redraw() {
   var canvasMargin = 2;
   var canvasWidth = 80;
   var sources = $(".source");
+  var canvasHeight = $(".sources-container > div").eq(0).height();
   var oldCanvas = $(".sources-container > canvas");
   var canvas = $("<canvas/>")
       .attr("width", canvasWidth)
-      .attr("height", sources.eq(0).height())
-      .insertAfter(sources.slice(0, sources.length - 1));
+      .attr("height", canvasHeight)
+      .insertAfter(sources.slice(0, sources.length - 1).parent());
   oldCanvas.remove();
 
   // change linemap to a run-length encoding
@@ -46,18 +50,20 @@ function _redraw() {
       var rle = [];
       if (linemap.length > 0) {
           var idx = 0;
-          var prev = linemap[0];
-          var prevlen = 1;
+          var prev = 0;
+          var prevlen = 0;
           for (idx = 1; idx < linemap.length; idx++) {
               if (linemap[idx] == 0 || linemap[idx] == prev) {
                   prevlen++;
               } else {
-                  rle.push([prev - 1, idx - prevlen, prevlen]);
+                  if (prev != 0)
+                      rle.push([prev - 1, idx - prevlen, prevlen]);
                   prev = linemap[idx];
                   prevlen = 1;
               }
           }
-          rle.push([prev - 1, idx - prevlen, prevlen]);
+          if (prev != 0)
+              rle.push([prev - 1, idx - prevlen, prevlen]);
       }
       rlinemaps_rle.push(rle);
   }
@@ -72,10 +78,21 @@ function _redraw() {
     var lines1 = nlines[nth + 1];
     for (var i0 = 0; i0 < rlinemap_rle.length; ++i0) {
       var rle = rlinemap_rle[i0];
-      var fill = fill_rainbow[i0 % fill_rainbow.length];
+      var fill = fill_rainbow[rle[0] % fill_rainbow.length];
       var lineHeight0 = item0.height() / lines0;
       var y0 = item0.position().top + lineHeight0 * rle[0];
       var h0 = lineHeight0;
+
+      var lineHeight1 = item1.height() / lines1;
+      var y1 = item1.position().top + lineHeight1 * rle[1];
+      var h1 = lineHeight1 * rle[2];
+
+      if ((y0 + h0 < -2 * lineHeight0 || y0 > canvasHeight + 2 * lineHeight0)
+          && (y1 + h1 < -2 * lineHeight0 || y1 > canvasHeight + 2 * lineHeight0)) {
+          // don't render connecting lines for items where the end-points are completely hidden
+          // TODO: add some transparency instead and fade them out
+          continue;
+      }
 
       // draw curve for the left side
       ctx.beginPath();
@@ -96,10 +113,6 @@ function _redraw() {
         y0 += h0 / 2 - radius;
       }
       ctx.stroke();
-
-      var lineHeight1 = item1.height() / lines1;
-      var y1 = item1.position().top + lineHeight1 * rle[1];
-      var h1 = lineHeight1 * rle[2];
 
       // draw curve for the right side
       ctx.beginPath();
@@ -144,7 +157,8 @@ function _redraw() {
 
 $( document ).ready(function() {
   $(".source")
-    .on("scroll", _redraw)
+    .on("scroll", _redraw);
+  $(window)
     .on("resize", _redraw);
   _redraw();
 });
