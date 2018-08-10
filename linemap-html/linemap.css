@@ -64,12 +64,16 @@ pre, div, td, th, tr, tbody {
   border-right-width: 1px;
 }
 
-.source-profile {
+.source, .source-profile {
   position: relative;
 }
 
-.source-profile > * {
+.source > *, .source-profile > * {
   position: absolute;
+}
+
+.source > .flame {
+  margin-top: 2px; /* to align top with table border-collapse:separate */
 }
 
 .flame {
@@ -78,15 +82,15 @@ pre, div, td, th, tr, tbody {
 
 .flame > pre {
   width: 100%;
-  line-height: calc(1.2em - 5px);
 }
 
 .flame > pre > span {
   background-color: rgba(196, 0, 0, 0.4); /* darken */
-  margin: 2px 0;
+  margin-top: 2px;
   border-top: 1px dashed black;
   border-right: 3px solid black;
   display: inline-block;
+  height: calc(1.2em - 8px); /* ensure the total size is something less than line-height */
 }
 
 #profile .inlined {
